@@ -44,7 +44,7 @@ fun HomeScreen(){
 
         Image(
             painter = painterResource(R.drawable.ohm),
-            contentDescription = "hoem",
+            contentDescription = "home",
             alignment = Alignment.Center,
             modifier = Modifier.fillMaxWidth(),
         )
