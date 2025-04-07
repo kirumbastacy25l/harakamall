@@ -1,5 +1,6 @@
 package com.j0e101.harakamall.ui.screens.item
 
+import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,8 +12,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Star
@@ -34,17 +35,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.net.toUri
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.j0e101.harakamall.R
+import com.j0e101.harakamall.navigation.ROUT_INTENT
 import com.j0e101.harakamall.ui.theme.neworange
 import com.j0e101.harakamall.ui.theme.newwhite
+
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -52,7 +57,7 @@ import com.j0e101.harakamall.ui.theme.newwhite
 fun ItemScreen(navController: NavController){
     Column(modifier = Modifier.fillMaxSize()
     ) {
-
+        val mContext = LocalContext.current //VERY IMPORTANT
         //TopAppBar
         TopAppBar(
             title = { Text(text = "Products") },
@@ -76,8 +81,11 @@ fun ItemScreen(navController: NavController){
                         Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = "ShoppingCart")
 
                     }
-                    IconButton(onClick = {}) {
-                        Icon(imageVector = Icons.Default.Notifications, contentDescription = "Notifications")
+                    IconButton(onClick = {
+
+                        navController.navigate(ROUT_INTENT)
+                    }) {
+                        Icon(imageVector = Icons.Default.ArrowForward, contentDescription = "Notifications")
 
                     }
                 }
@@ -292,7 +300,14 @@ fun ItemScreen(navController: NavController){
                     Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = neworange)
                 }
                 Button(
-                    onClick = {},
+                    onClick = {
+                        val callIntent=Intent(Intent.ACTION_DIAL)
+                        callIntent.data="tel:0114386232".toUri()
+                        mContext.startActivity(callIntent)
+
+
+
+                    },
                     colors = ButtonDefaults.buttonColors(Color.DarkGray),
                     shape = RoundedCornerShape(size = 10.dp)
                 ) {

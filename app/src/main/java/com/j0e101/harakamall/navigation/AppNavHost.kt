@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.j0e101.harakamall.ui.screens.about.AboutScreen
 import com.j0e101.harakamall.ui.screens.home.HomeScreen
+import com.j0e101.harakamall.ui.screens.intent.IntentScreen
 import com.j0e101.harakamall.ui.screens.item.ItemScreen
 import com.j0e101.harakamall.ui.screens.start.StartScreen
 
@@ -35,6 +36,10 @@ fun AppNavHost(
         }
         composable(ROUT_START) {
             StartScreen(navController)
+        }
+
+        composable(ROUT_INTENT) {
+            IntentScreen(navController)
         }
 
 
