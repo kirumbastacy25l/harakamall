@@ -2,6 +2,7 @@ package com.j0e101.harakamall.ui.screens.dashboard
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,6 +36,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.j0e101.harakamall.R
+import com.j0e101.harakamall.navigation.ROUT_ABOUT
+import com.j0e101.harakamall.navigation.ROUT_HOME
 import com.j0e101.harakamall.ui.theme.neworange
 import com.j0e101.harakamall.ui.theme.neworange1
 
@@ -87,7 +90,7 @@ fun DashboardScreen(navController: NavController){
                     modifier = Modifier.fillMaxWidth().height(100.dp),
                 )
 
-                Text(text = "Welcome to HarakaMall whe1re we help our clients choose the best products they need!")
+                Text(text = "Welcome to HarakaMall where we help our clients choose the best products they need!")
                 Text(text = "To access any of our information,click on the homepage,about,call or products and have fun getting to know more about us!")
 
 
@@ -105,7 +108,12 @@ fun DashboardScreen(navController: NavController){
         Row(modifier = Modifier.padding(start = 40.dp, end = 40.dp)
         ) {
             //Card1
-            Card( modifier = Modifier.width(150.dp).height(180.dp),
+            Card(
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(180.dp)
+                    .clickable{navController.navigate(ROUT_HOME)},
+
                 elevation = CardDefaults.cardElevation(10.dp)
             ) {
 
@@ -136,7 +144,10 @@ fun DashboardScreen(navController: NavController){
 
             Spacer(modifier = Modifier.width(20.dp))
             //Card2
-            Card( modifier = Modifier.width(150.dp).height(180.dp),
+            Card( modifier = Modifier
+                .width(150.dp)
+                .height(180.dp)
+                .clickable{navController.navigate(ROUT_ABOUT)},
                 elevation = CardDefaults.cardElevation(10.dp)
             ) {
 
@@ -174,7 +185,10 @@ fun DashboardScreen(navController: NavController){
         Row(modifier = Modifier.padding(start = 40.dp, end = 40.dp)
         ) {
             //Card1
-            Card( modifier = Modifier.width(150.dp).height(180.dp),
+            Card( modifier = Modifier
+                .width(150.dp)
+                .height(180.dp),
+
                 elevation = CardDefaults.cardElevation(10.dp)
             ) {
 

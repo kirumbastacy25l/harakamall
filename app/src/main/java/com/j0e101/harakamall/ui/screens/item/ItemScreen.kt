@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Menu
@@ -55,7 +57,9 @@ import com.j0e101.harakamall.ui.theme.newwhite
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemScreen(navController: NavController){
-    Column(modifier = Modifier.fillMaxSize()
+    Column(
+        modifier = Modifier.fillMaxSize()
+        .verticalScroll(rememberScrollState())
     ) {
         val mContext = LocalContext.current //VERY IMPORTANT
         //TopAppBar
