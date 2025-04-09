@@ -13,7 +13,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Card
@@ -41,7 +43,9 @@ import com.j0e101.harakamall.ui.theme.neworange1
 @Composable
 fun DashboardScreen(navController: NavController){
     Column(
-        modifier = Modifier.fillMaxSize().background(neworange)
+        modifier = Modifier.fillMaxSize()
+            .background(neworange)
+            .verticalScroll(rememberScrollState())
     ){
 
         //Box
@@ -77,6 +81,16 @@ fun DashboardScreen(navController: NavController){
                     .padding(start = 20.dp, end = 20.dp)
                     .offset(y=90.dp)
             ) {
+                Image(
+                    painter = painterResource(R.drawable.mall),
+                    contentDescription = "home",
+                    modifier = Modifier.fillMaxWidth().height(100.dp),
+                )
+
+                Text(text = "Welcome to HarakaMall whe1re we help our clients choose the best products they need!")
+                Text(text = "To access any of our information,click on the homepage,about,call or products and have fun getting to know more about us!")
+
+
 
 
             }
@@ -88,7 +102,7 @@ fun DashboardScreen(navController: NavController){
 
 
         //ROW
-        Row(modifier = Modifier.padding(start = 20.dp, end = 20.dp)
+        Row(modifier = Modifier.padding(start = 40.dp, end = 40.dp)
         ) {
             //Card1
             Card( modifier = Modifier.width(150.dp).height(180.dp),
@@ -157,7 +171,7 @@ fun DashboardScreen(navController: NavController){
         //End of row
         Spacer(modifier = Modifier.height(20.dp))
         //ROW
-        Row(modifier = Modifier.padding(start = 20.dp, end = 20.dp)
+        Row(modifier = Modifier.padding(start = 40.dp, end = 40.dp)
         ) {
             //Card1
             Card( modifier = Modifier.width(150.dp).height(180.dp),
