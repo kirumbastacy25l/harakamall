@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.j0e101.harakamall.ui.screens.about.AboutScreen
+import com.j0e101.harakamall.ui.screens.assignment.ProjectScreen
 import com.j0e101.harakamall.ui.screens.dashboard.DashboardScreen
 import com.j0e101.harakamall.ui.screens.home.HomeScreen
 import com.j0e101.harakamall.ui.screens.intent.IntentScreen
@@ -19,7 +20,7 @@ import com.j0e101.harakamall.ui.screens.start.StartScreen
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_SPLASH
+    startDestination: String = ROUT_PROJECT
 ) {
 
     NavHost(
@@ -58,6 +59,12 @@ fun AppNavHost(
         composable(ROUT_SPLASH) {
             SplashScreen(navController)
         }
+
+        composable(ROUT_PROJECT) {
+            ProjectScreen(navController)
+        }
+
+
 
 
 

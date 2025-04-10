@@ -117,22 +117,22 @@ fun DashboardScreen(navController: NavController){
                 elevation = CardDefaults.cardElevation(10.dp)
             ) {
 
-             Column(
-                 modifier = Modifier.fillMaxSize(),
-                 horizontalAlignment = Alignment.CenterHorizontally,
-                 verticalArrangement = Arrangement.Center
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
 
-             ){
-                 Image(
-                     painter = painterResource(R.drawable.home),
-                     contentDescription = "home",
-                     modifier = Modifier.fillMaxWidth().height(100.dp),
-                     )
-                 Text(text = "Home", fontSize = 15.sp)
+                ){
+                    Image(
+                        painter = painterResource(R.drawable.home),
+                        contentDescription = "home",
+                        modifier = Modifier.fillMaxWidth().height(100.dp),
+                    )
+                    Text(text = "Home", fontSize = 15.sp)
 
 
 
-             }
+                }
 
 
 
@@ -140,7 +140,7 @@ fun DashboardScreen(navController: NavController){
 
 
 
-        //End of card1
+            //End of card1
 
             Spacer(modifier = Modifier.width(20.dp))
             //Card2
