@@ -12,13 +12,14 @@ import com.j0e101.harakamall.ui.screens.home.HomeScreen
 import com.j0e101.harakamall.ui.screens.intent.IntentScreen
 import com.j0e101.harakamall.ui.screens.item.ItemScreen
 import com.j0e101.harakamall.ui.screens.service.ServiceScreen
+import com.j0e101.harakamall.ui.screens.splash.SplashScreen
 import com.j0e101.harakamall.ui.screens.start.StartScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_DASHBOARD
+    startDestination: String = ROUT_SPLASH
 ) {
 
     NavHost(
@@ -51,6 +52,11 @@ fun AppNavHost(
 
         composable(ROUT_SERVICE) {
             ServiceScreen(navController)
+        }
+
+
+        composable(ROUT_SPLASH) {
+            SplashScreen(navController)
         }
 
 

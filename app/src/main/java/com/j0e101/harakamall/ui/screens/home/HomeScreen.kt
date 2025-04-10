@@ -4,16 +4,16 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -28,8 +28,10 @@ import com.j0e101.harakamall.R
 @Composable
 fun HomeScreen(navController: NavController){
     Column (
-        modifier = Modifier.fillMaxSize()
-            .verticalScroll(rememberScrollState())
+        modifier = Modifier
+            .fillMaxSize()
+            .paint(painter = painterResource(R.drawable.b), contentScale = ContentScale.FillBounds)
+
     ) {
         Text(
             text = "Haraka Mall at your Service",

@@ -2,13 +2,16 @@ package com.j0e101.harakamall.ui.screens.service
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
@@ -17,6 +20,9 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -35,11 +41,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -57,6 +66,7 @@ fun ServiceScreen(navController: NavController){
     //Scaffold
 
     var selectedIndex by remember { mutableStateOf(0) }
+    val mContext = LocalContext.current //VERY IMPORTANT
 
     Scaffold(
         //TopBar
@@ -135,6 +145,8 @@ fun ServiceScreen(navController: NavController){
                 modifier = Modifier
                     .padding(paddingValues)
                     .fillMaxSize()
+                    .paint(painter = painterResource(R.drawable.b), contentScale = ContentScale.FillBounds)
+                    .verticalScroll(rememberScrollState())
             ) {
 
 
@@ -176,6 +188,73 @@ fun ServiceScreen(navController: NavController){
 
 
                 )
+                //Row
+                Row(
+                    modifier = Modifier.padding(start = 20.dp)
+                ) {
+
+                    Image(
+                        painter = painterResource(R.drawable.tey),
+                        contentDescription = "home",
+                        modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(10.dp)),
+                        contentScale = ContentScale.FillWidth
+                    )
+                    Spacer(modifier = Modifier.width(20.dp))
+
+                    Column {
+                        Text(
+                            text = "Men's T-Shirt",
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.ExtraBold
+
+
+
+                        )
+                        Text(
+                            text = "Casual Wear",
+                            fontSize = 15.sp,
+                            fontWeight = FontWeight.ExtraBold
+
+                        )
+                        Text(
+                            text = "Ksh.2000",
+                            fontSize = 15.sp,
+                            textDecoration = TextDecoration.LineThrough
+
+                        )
+                        Text(
+                            text = "Price : Ksh.1900",
+                            fontSize = 15.sp,
+
+
+                            )
+                        Row {
+                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = neworange)
+                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = neworange)
+                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = neworange)
+                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = neworange)
+                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = neworange)
+                        }
+                        Button(
+                            onClick = {},
+                            colors = ButtonDefaults.buttonColors(Color.DarkGray),
+                            shape = RoundedCornerShape(size = 10.dp)
+                        ) {
+                            Text(
+                                text = "Contact Us",
+                                color = Color.Green
+                            )
+                        }
+
+
+
+
+
+                    }
+
+
+                }
+                //End of row
 
 
 
