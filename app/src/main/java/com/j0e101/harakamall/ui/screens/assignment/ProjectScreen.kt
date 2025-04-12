@@ -55,6 +55,7 @@ import com.j0e101.harakamall.ui.theme.neworange
 import com.j0e101.harakamall.ui.theme.neworange1
 import com.j0e101.harakamall.ui.theme.newwhite
 import com.j0e101.harakamall.ui.theme.newwhite2
+import com.j0e101.harakamall.ui.theme.pink
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -88,7 +89,7 @@ fun ProjectScreen(navController: NavController){
                 containerColor = newwhite2
             ){
                 NavigationBarItem(
-                    icon = { androidx.compose.material3.Icon(Icons.Default.Home, contentDescription = "Home",) },
+                    icon = { androidx.compose.material3.Icon(Icons.Default.Home, contentDescription = "Home", tint = pink) },
 
                     selected = selectedIndex == 0,
                     onClick = { selectedIndex = 0
@@ -112,7 +113,7 @@ fun ProjectScreen(navController: NavController){
                     },
 
 
-                )
+                    )
                 NavigationBarItem(
                     icon = { androidx.compose.material3.Icon(Icons.Default.AccountCircle, contentDescription = "Info") },
 
@@ -275,27 +276,27 @@ fun ProjectScreen(navController: NavController){
                         ) {
                             Row {
 
-                            Image(
-                                painter = painterResource(R.drawable.img),
-                                contentDescription = "home",
-                                modifier = Modifier.width(30.dp).height(30.dp),
-                            )
-                            Spacer(modifier = Modifier.width(20.dp))
-                            Column {
-                                Text(
-                                    text = "NDA Review for website project",
-                                    fontSize = 20.sp,
-                                    fontWeight = FontWeight.ExtraBold
-
+                                Image(
+                                    painter = painterResource(R.drawable.img),
+                                    contentDescription = "home",
+                                    modifier = Modifier.width(30.dp).height(30.dp),
                                 )
-                                Spacer(modifier = Modifier.height(5.dp))
-                                Text(
-                                    text = "Today - 10pm",
-                                    fontSize = 20.sp,
-
+                                Spacer(modifier = Modifier.width(20.dp))
+                                Column {
+                                    Text(
+                                        text = "NDA Review for website project",
+                                        fontSize = 20.sp,
+                                        fontWeight = FontWeight.ExtraBold
 
                                     )
-                            }
+                                    Spacer(modifier = Modifier.height(5.dp))
+                                    Text(
+                                        text = "Today - 10pm",
+                                        fontSize = 20.sp,
+
+
+                                        )
+                                }
                             }
 
 
@@ -315,27 +316,27 @@ fun ProjectScreen(navController: NavController){
                                 .offset(y=90.dp)
                         ) {
                             Row {
-                            Image(
-                                painter = painterResource(R.drawable.email),
-                                contentDescription = "home",
-                                modifier = Modifier.width(30.dp).height(30.dp),
-                            )
-                            Spacer(modifier = Modifier.width(20.dp))
-                            Column {
-                                Text(
-                                    text = "Email Reply for Green Project",
-                                    fontSize = 20.sp,
-                                    fontWeight = FontWeight.ExtraBold
-
+                                Image(
+                                    painter = painterResource(R.drawable.email),
+                                    contentDescription = "home",
+                                    modifier = Modifier.width(30.dp).height(30.dp),
                                 )
-                                Spacer(modifier = Modifier.height(5.dp))
-                                Text(
-                                    text = "Today - 10pm",
-                                    fontSize = 20.sp,
+                                Spacer(modifier = Modifier.width(20.dp))
+                                Column {
+                                    Text(
+                                        text = "Email Reply for Green Project",
+                                        fontSize = 20.sp,
+                                        fontWeight = FontWeight.ExtraBold
+
+                                    )
+                                    Spacer(modifier = Modifier.height(5.dp))
+                                    Text(
+                                        text = "Today - 10pm",
+                                        fontSize = 20.sp,
 
 
-                                )
-                            }
+                                        )
+                                }
                             }
 
 

@@ -9,6 +9,8 @@ import androidx.navigation.compose.rememberNavController
 import com.j0e101.harakamall.ui.screens.about.AboutScreen
 import com.j0e101.harakamall.ui.screens.assignment.ProjectScreen
 import com.j0e101.harakamall.ui.screens.dashboard.DashboardScreen
+import com.j0e101.harakamall.ui.screens.form.FormScreen
+import com.j0e101.harakamall.ui.screens.form2.Form2Screen
 import com.j0e101.harakamall.ui.screens.home.HomeScreen
 import com.j0e101.harakamall.ui.screens.intent.IntentScreen
 import com.j0e101.harakamall.ui.screens.item.ItemScreen
@@ -20,7 +22,7 @@ import com.j0e101.harakamall.ui.screens.start.StartScreen
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_PROJECT
+    startDestination: String = ROUT_FORM
 ) {
 
     NavHost(
@@ -62,6 +64,16 @@ fun AppNavHost(
 
         composable(ROUT_PROJECT) {
             ProjectScreen(navController)
+        }
+
+
+        composable(ROUT_FORM) {
+            FormScreen(navController)
+        }
+
+
+        composable(ROUT_FORM2) {
+            Form2Screen(navController)
         }
 
 
