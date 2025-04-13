@@ -4,14 +4,12 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
@@ -53,7 +51,6 @@ import com.j0e101.harakamall.ui.theme.blue
 import com.j0e101.harakamall.ui.theme.green
 import com.j0e101.harakamall.ui.theme.neworange
 import com.j0e101.harakamall.ui.theme.neworange1
-import com.j0e101.harakamall.ui.theme.newwhite
 import com.j0e101.harakamall.ui.theme.newwhite2
 import com.j0e101.harakamall.ui.theme.pink
 
@@ -252,109 +249,101 @@ fun ProjectScreen(navController: NavController){
 
                 }
                 //End of Row
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(30.dp))
+                Column(modifier = Modifier
+                    .fillMaxWidth()
+                    .height(400.dp)
+                    .background(newwhite2)
+                
 
-                //Box
-                Box () {
+                ) {
+                    Spacer(modifier = Modifier.height(20.dp))
+                    Text(text= "Personal Tasks", fontWeight = FontWeight.Bold, fontSize = 20.sp)
+                    Spacer(modifier = Modifier.height(20.dp))
+                    //CARD 1
+                    Card (modifier = Modifier.width(700.dp).height(60.dp)){
+                        Row {
+                            Image(
+                                painter = painterResource(R.drawable.img),
+                                contentDescription = "home",
 
-                    Column(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(newwhite)
-                    ) {
-
-
-                        Card(
-                            modifier = Modifier
-                                .width(900.dp)
-                                .height(70.dp)
-                                .background(newwhite2)
-
-                                .padding(start = 0.dp, end = 20.dp)
-                                .offset(y=90.dp)
-
-                        ) {
-                            Row {
-
-                                Image(
-                                    painter = painterResource(R.drawable.img),
-                                    contentDescription = "home",
-                                    modifier = Modifier.width(30.dp).height(30.dp),
                                 )
-                                Spacer(modifier = Modifier.width(20.dp))
-                                Column {
-                                    Text(
-                                        text = "NDA Review for website project",
-                                        fontSize = 20.sp,
-                                        fontWeight = FontWeight.ExtraBold
+                            Spacer(modifier = Modifier.width(20.dp))
+
+                            Column {
+
+                                Text(
+                                    text = "NDA Review for Website Project",
+                                    fontSize = 20.sp,
+                                    fontWeight = FontWeight.Bold
 
                                     )
-                                    Spacer(modifier = Modifier.height(5.dp))
-                                    Text(
-                                        text = "Today - 10pm",
-                                        fontSize = 20.sp,
+                                Spacer(modifier = Modifier.height(5.dp))
+                                Text(
+                                    text = "Today -10pm",
+                                    fontSize = 10.sp,
 
+                                    )
 
-                                        )
-                                }
                             }
 
 
-
-
-
-
                         }
-                        //CONTENTS OF CARD1
-                        Spacer(modifier = Modifier.height(20.dp))
-                        Card(
-                            modifier = Modifier
-                                .width(900.dp)
-                                .height(70.dp)
-
-                                .padding(start = 0.dp, end = 20.dp)
-                                .offset(y=90.dp)
-                        ) {
-                            Row {
-                                Image(
-                                    painter = painterResource(R.drawable.email),
-                                    contentDescription = "home",
-                                    modifier = Modifier.width(30.dp).height(30.dp),
-                                )
-                                Spacer(modifier = Modifier.width(20.dp))
-                                Column {
-                                    Text(
-                                        text = "Email Reply for Green Project",
-                                        fontSize = 20.sp,
-                                        fontWeight = FontWeight.ExtraBold
-
-                                    )
-                                    Spacer(modifier = Modifier.height(5.dp))
-                                    Text(
-                                        text = "Today - 10pm",
-                                        fontSize = 20.sp,
-
-
-                                        )
-                                }
-                            }
 
 
 
 
 
 
-                        }
-                        //CONTENTS OF CARD2
+
+
                     }
+                    //End of card 1
+                    Spacer(modifier = Modifier.height(20.dp))
+                    //CARD 2
+                    Card (modifier = Modifier.width(600.dp).height(60.dp)){
+                        Row {
+                            Image(modifier = Modifier.height(50.dp),
+                                painter = painterResource(R.drawable.email),
+                                contentDescription = "home",
+
+                                )
+                            Spacer(modifier = Modifier.width(20.dp))
+                            Column {
+
+                            Text(
+                                text = "Email Reply For Green Project",
+                                fontSize = 20.sp, fontWeight = FontWeight.Bold
+
+                                )
+                                Spacer(modifier = Modifier.height(5.dp))
+                                Text(
+                                    text = "Today -10pm",
+                                    fontSize = 10.sp,
+
+                                    )
+
+                            }
+
+
+
+
+                        }
+
+
+
+                    }
+                    //End of card 2
+
+
+
+
+
 
 
 
 
                 }
-                //End of box
-                Spacer(modifier = Modifier.height(100.dp))
-
 
 
 
