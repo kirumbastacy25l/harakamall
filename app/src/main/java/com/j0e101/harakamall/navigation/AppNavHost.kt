@@ -22,12 +22,13 @@ import com.j0e101.harakamall.ui.screens.start.StartScreen
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_FORM
+    startDestination: String = ROUT_PROJECT
 ) {
 
     NavHost(
         navController = navController,
         startDestination = startDestination,
+
         modifier = modifier
     ) {
         composable(ROUT_HOME) {

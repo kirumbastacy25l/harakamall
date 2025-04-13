@@ -301,7 +301,7 @@ fun ProjectScreen(navController: NavController){
                     //End of card 1
                     Spacer(modifier = Modifier.height(20.dp))
                     //CARD 2
-                    Card (modifier = Modifier.width(600.dp).height(60.dp)){
+                    Card (modifier = Modifier.width(700.dp).height(60.dp)){
                         Row {
                             Image(modifier = Modifier.height(50.dp),
                                 painter = painterResource(R.drawable.email),
