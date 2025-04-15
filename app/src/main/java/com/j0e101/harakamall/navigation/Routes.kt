@@ -14,3 +14,7 @@ const val ROUT_SPLASH = "splash"
 const val ROUT_PROJECT = "project"
 const val ROUT_FORM = "form"
 const val ROUT_FORM2 = "form2"
+
+//Authentication
+const val ROUT_REGISTER = "Register"
+const val ROUT_LOGIN = "Login"

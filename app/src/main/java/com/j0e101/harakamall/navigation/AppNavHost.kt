@@ -2,12 +2,17 @@ package com.j0e101.harakamall.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.j0e101.harakamall.data.UserDatabase
+import com.j0e101.harakamall.repository.UserRepository
 import com.j0e101.harakamall.ui.screens.about.AboutScreen
 import com.j0e101.harakamall.ui.screens.assignment.ProjectScreen
+import com.j0e101.harakamall.ui.screens.auth.LoginScreen
+import com.j0e101.harakamall.ui.screens.auth.RegisterScreen
 import com.j0e101.harakamall.ui.screens.dashboard.DashboardScreen
 import com.j0e101.harakamall.ui.screens.form.FormScreen
 import com.j0e101.harakamall.ui.screens.form2.Form2Screen
@@ -17,6 +22,7 @@ import com.j0e101.harakamall.ui.screens.item.ItemScreen
 import com.j0e101.harakamall.ui.screens.service.ServiceScreen
 import com.j0e101.harakamall.ui.screens.splash.SplashScreen
 import com.j0e101.harakamall.ui.screens.start.StartScreen
+import com.j0e101.harakamall.viewmodel.AuthViewModel
 
 @Composable
 fun AppNavHost(
@@ -24,6 +30,7 @@ fun AppNavHost(
     navController: NavHostController = rememberNavController(),
     startDestination: String = ROUT_PROJECT
 ) {
+    val context = LocalContext.current
 
     NavHost(
         navController = navController,
@@ -75,6 +82,27 @@ fun AppNavHost(
 
         composable(ROUT_FORM2) {
             Form2Screen(navController)
+        }
+        //AUTHENTICATION
+
+        // Initialize Room Database and Repository for Authentication
+        val appDatabase = UserDatabase.getDatabase(context)
+        val authRepository = UserRepository(appDatabase.userDao())
+        val authViewModel: AuthViewModel = AuthViewModel(authRepository)
+        composable(ROUT_REGISTER) {
+            RegisterScreen(authViewModel, navController) {
+                navController.navigate(ROUT_LOGIN) {
+                    popUpTo(ROUT_REGISTER) { inclusive = true }
+                }
+            }
+        }
+
+        composable(ROUT_LOGIN) {
+            LoginScreen(authViewModel, navController) {
+                navController.navigate(ROUT_HOME) {
+                    popUpTo(ROUT_LOGIN) { inclusive = true }
+                }
+            }
         }
 
 
