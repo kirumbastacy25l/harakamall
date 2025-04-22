@@ -28,7 +28,7 @@ import com.j0e101.harakamall.viewmodel.AuthViewModel
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_PROJECT
+    startDestination: String = ROUT_LOGIN
 ) {
     val context = LocalContext.current
 
